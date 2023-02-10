@@ -50,7 +50,7 @@ const Register = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    setUserData({ ...userData, ["pic"]: data.url.toString() });
+                    setUserData({ ...userData, [`${"pics"}`]: data.url.toString() });
                     setUploadingImage(false);
                 })
                 .catch((err) => {
@@ -80,7 +80,7 @@ const Register = () => {
             };
             console.log(name, email, password, pic);
             const { data } = await axios.post(
-                "/myEndPoint",
+                "/api/users/",
                 { name, email, password, pic },
                 config
             );
@@ -156,7 +156,7 @@ const Register = () => {
                 </InputGroup>
             </FormControl>
             <FormControl id="pic">
-                <FormLabel mb="0px">Upload Profile Picture</FormLabel>
+                <FormLabel mb="0px">Upload Avatar</FormLabel>
                 <Input
                     type="file"
                     onChange={(e) => postDetails(e.target.files[0])}

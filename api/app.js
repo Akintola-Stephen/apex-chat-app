@@ -3,13 +3,21 @@ const colors = require("colors");
 const dbConnect = require("./db.js");
 require("dotenv").config();
 const userRoutes = require("./routes/userRoutes");
+const chatRoutes = require("./routes/chatRoutes");
+const messageRoutes = require("./routes/messageRoutes");
+const notificationRoutes = require("./routes/notificationRoutes");
 
 dbConnect();
 const app = express();
+const PORT = process.env.PORT || 5000
 app.use(express.json());
 
 // Main routes
 app.use("/api/users", userRoutes);
+app.use("/api/chats", chatRoutes);
+app.use("/api/message", messageRoutes);
+app.use("/api/notification", notificationRoutes);
+
 
 // -----------------------------------------------------------------------------
 
@@ -24,9 +32,9 @@ app.get("/", (req, res) => {
 // -----------------------------------------------------------------------------
 
 
-const server = app.listen(process.env.PORT || 5000, () => {
+const server = app.listen(PORT, () => {
     console.log(
-        colors.brightMagenta(`\nServer is UP on PORT ${process.env.SERVER_PORT}`)
+        colors.brightMagenta(`\nServer is aed ru UP and running on PORT ${process.env.SERVER_PORT}`)
     );
-    console.log(`Visit  ` + colors.underline.blue(`localhost:${5000}`));
+    console.log(`Visit  ` + colors.underline.blue(`localhost:${PORT}`));
 });

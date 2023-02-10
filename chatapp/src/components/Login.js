@@ -104,7 +104,7 @@ const Login = () => {
             >
                 Login
             </Button>
-            <Button
+            {/* <Button
                 variant="outline"
                 bg={"#fff"}
                 colorScheme={"white"}
@@ -120,7 +120,7 @@ const Login = () => {
                 isLoading={loading}
             >
                 Guest login
-            </Button>
+            </Button> */}
         </VStack>
     );
 };
